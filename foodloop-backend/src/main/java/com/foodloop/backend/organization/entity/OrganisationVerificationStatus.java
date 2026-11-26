@@ -22,5 +22,17 @@ public enum OrganisationVerificationStatus {
     /**
      * Temporarily or permanently suspended due to policy or compliance issues.
      */
-    SUSPENDED
+    SUSPENDED;
+
+    /**
+     * Determines whether an organisation with this status is eligible to participate
+     * in operational activities such as donating or collecting food.
+     * Only VERIFIED organisations can participate. PENDING, REJECTED, and SUSPENDED
+     * organisations are strictly prohibited.
+     *
+     * @return true if VERIFIED, false otherwise
+     */
+    public boolean canParticipateInOperations() {
+        return this == VERIFIED;
+    }
 }

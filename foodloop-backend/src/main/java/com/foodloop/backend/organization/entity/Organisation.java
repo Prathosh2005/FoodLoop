@@ -154,6 +154,14 @@ public class Organisation extends BaseEntity {
         this.verificationStatus = verificationStatus;
     }
 
+    public boolean isVerified() {
+        return this.verificationStatus == OrganisationVerificationStatus.VERIFIED;
+    }
+
+    public boolean canParticipateInOperations() {
+        return this.verificationStatus != null && this.verificationStatus.canParticipateInOperations();
+    }
+
     @Override
     public String toString() {
         return "Organisation{" +
